@@ -1,6 +1,6 @@
 {
-  "name": "swagger-vue-generator",
-  "version": "1.0.6",
+  "name": "ts-swagger-vue-generator",
+  "version": "1.0.0",
   "description": "Generate api from spec & documentation for swagger-vue with templates (markdown or html)",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sonrac/swagger-vue-doc-generator.git"
+    "url": "git+https://github.com/zhuzeyu22/swagger-vue-doc-generator.git"
   },
   "keywords": [
     "swagger",
@@ -21,12 +21,12 @@
     "generator",
     "docs generator"
   ],
-  "author": "Donii Sergii <doniysa@gmail.com>",
+  "author": "zhuzyu <zhuzyu@yonyou.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sonrac/swagger-vue-doc-generator/issues"
+    "url": "https://github.com/zhuzeyu22/swagger-vue-doc-generator/issues"
   },
-  "homepage": "https://github.com/sonrac/swagger-vue-doc-generator#readme",
+  "homepage": "https://github.com/zhuzeyu22/swagger-vue-doc-generator#readme",
   "dependencies": {
     "argparse": "^1.0.9",
     "chai": "^4.1.2",
