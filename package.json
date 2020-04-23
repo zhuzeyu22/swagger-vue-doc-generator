@@ -1,6 +1,6 @@
 {
   "name": "ts-swagger-vue-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate api from spec & documentation for swagger-vue with templates (markdown or html)",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "generator",
     "docs generator"
   ],
-  "author": "zhuzyu <zhuzyu@yonyou.com>",
+  "author": "zhuzyu <756531815@qq.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhuzeyu22/swagger-vue-doc-generator/issues"

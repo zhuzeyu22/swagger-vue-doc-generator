@@ -1,4 +1,5 @@
 const ArgumentParser = require('argparse').ArgumentParser,
+      http             = require('http'),
       fs             = require('fs'),
       path           = require('path'),
       DocGenerator   = require('./DocGenerator'),
@@ -110,6 +111,14 @@ class InitCli {
         defaultValue: 'git tag -l'
       }
     )
+
+    this.addArgument(
+      ['-u', '--url'],
+      {
+        help        : 'Fecth swagger file from URL',
+      }
+    )
+
   }
 
   /**
@@ -161,12 +170,28 @@ class InitCli {
     this.parser.addArgument(command, options)
   }
 
+  /*
+   * Fecth swagger file from URL
+  */
+  fectchFile(){
+    http.get(this.arguments.url, response=>{
+      var json = ''
+      response.on('data', (data => {
+        json += data
+      })) 
+      response.on('end', () => {
+          fs.writeFile(this.arguments.source, json)
+      })
+    })
+  }
+
   /**
    * Generate api file
    */
   generateApi () {
 
     this.parse()
+    this.arguments.url ? this.fectchFile() : null
 
     let jsonFile  = fs.existsSync(this.arguments.source) ? this.arguments.source : path.join(process.cwd(), this.arguments.source),
         generator = new GenerateApi(jsonFile, {
