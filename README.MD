@@ -25,6 +25,7 @@ Use script `node_modules/swagger-vue-generator/bin/generate-api.js`
 | `-m` | `--moduleName` | Swagger generator module name. | required |
 | `-c` | `--className` | Swagger generator class name. | [optional]. Default value is API |
 | `-d` | `--destination` | Destination for output generate client. | required |
+| `-u` | `--url` | Fecth swagger file from URL. | [optional] |
 
 ### Example usages
 
@@ -46,6 +47,7 @@ node ./node_modules/swagger-vue-generator/bin/generate-api.js -s /path/to/api-do
 | `-c` | `--className` | Swagger generator class name. | [optional]. Default value is API |
 | `-t` | `--template` | Template dir. | [optional]. Default value is `./node_modules/swagger-vue-generator/src/2.0/templates/markdown` |
 | `-d` | `--destination` | Destination for output generate client. | required |
+| `-u` | `--url` | Fecth swagger file from URL. | [optional] |
 |  | `--model-path` | Destination for models. | [optional] |
 |  | `--doc-path` | Destination for methods. | [optional] |
 
