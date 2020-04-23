@@ -173,14 +173,14 @@ class InitCli {
   /*
    * Fecth swagger file from URL
   */
-  fectchFile(){
-    http.get(this.arguments.url, response=>{
+  async fectchFile(){
+    await http.get(this.arguments.url, response=>{
       var json = ''
       response.on('data', (data => {
         json += data
       })) 
       response.on('end', () => {
-          fs.writeFile(this.arguments.source, json)
+          fs.writeFileSync(this.arguments.source, json)
       })
     })
   }
@@ -188,10 +188,10 @@ class InitCli {
   /**
    * Generate api file
    */
-  generateApi () {
+  async generateApi () {
 
     this.parse()
-    this.arguments.url ? this.fectchFile() : null
+    this.arguments.url !== undefined ? await this.fectchFile() : null
 
     let jsonFile  = fs.existsSync(this.arguments.source) ? this.arguments.source : path.join(process.cwd(), this.arguments.source),
         generator = new GenerateApi(jsonFile, {
