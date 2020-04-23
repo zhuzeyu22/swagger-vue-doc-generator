@@ -174,7 +174,7 @@ class InitCli {
    * Fecth swagger file from URL
   */
   async fectchFile(){
-    return new Promise( resolve => http.get(this.arguments.url, response=>{
+    return new Promise( (resolve, reject) => http.get(this.arguments.url, response=>{
       var json = ''
       response.on('data', (data => {
         json += data
@@ -183,6 +183,9 @@ class InitCli {
           fs.writeFileSync(this.arguments.source, json)
           resolve({result:true})
       })
+      response.on('error', (e) => {
+        reject({result: false, errmsg: e.message});
+      });
     }))
   }
 
@@ -193,7 +196,7 @@ class InitCli {
 
     this.parse()
     if(this.arguments.url !== undefined){
-       await this.fectchFile() 
+       await this.fectchFile().catch(() => {}) 
     } 
     let jsonFile  = fs.existsSync(this.arguments.source) ? this.arguments.source : path.join(process.cwd(), this.arguments.source),
         generator = new GenerateApi(jsonFile, {
