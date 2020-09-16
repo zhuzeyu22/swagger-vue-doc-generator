@@ -22,15 +22,14 @@ Use script `node_modules/swagger-vue-generator/bin/generate-api.js`
 | `-v` | `--version` | Show this help message and exit. | [optional] |
 | `-f` | `--flag-swagger` | Set swagger version (`2.0` or `openapi`). 2.0 only supported | [optional]. Default value is `2.0` |
 | `-s` | `--source` | Source swagger file destination. | required |
-| `-m` | `--moduleName` | Swagger generator module name. | required |
-| `-c` | `--className` | Swagger generator class name. | [optional]. Default value is API |
 | `-d` | `--destination` | Destination for output generate client. | required |
 | `-u` | `--url` | Fecth swagger file from URL. | [optional] |
+|  | `--method-name-using-path` | Using path as the API method name. | [optional]. Default value is `false` |
 
 ### Example usages
 
 ```bash
-node ./node_modules/swagger-vue-generator/bin/generate-api.js -s /path/to/api-docs.json -d /path/to/api.js -m module-name 
+node ./node_modules/swagger-vue-generator/bin/generate-api.js -s /path/to/api-docs.json -d /path/to/api.js --method-name-using-path true -u http://localhost:8081/v2/api-docs
 ```
 
 ## Generate README.MD for api
