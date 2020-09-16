@@ -26,7 +26,7 @@ let getPathToMethodName = function (opts, m, path) {
         result.push(segment)
     })
     let result = _.camelCase(segments.join('-'))
-    return m.toLowerCase() + result[0].toUpperCase() + result.substring(1)
+    return result[0].toLowerCase() + result.substring(1) + 'Using' + m.toUpperCase()
 }
 
 let getViewForSwagger2 = function (opts) {
@@ -61,7 +61,7 @@ let getViewForSwagger2 = function (opts) {
             let method = {
                 path: path,
                 className: opts.className,
-                methodName: op.operationId ? normalizeName(op.operationId) : getPathToMethodName(opts, m, path),
+                methodName: opts.methodNameUsingPath ? getPathToMethodName(opts, m, path) :( op.operationId ? normalizeName(op.operationId) : getPathToMethodName(opts, m, path)),
                 method: m.toUpperCase(),
                 isGET: m.toUpperCase() === 'GET',
                 isPOST: m.toUpperCase() === 'POST',

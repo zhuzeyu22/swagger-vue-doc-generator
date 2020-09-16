@@ -39,7 +39,8 @@ class GenerateApi extends BaseGenerator {
         let data       = parse({
             swagger   : this.data,
             moduleName: this.options.moduleName,
-            className : this.options.className
+            className : this.options.className,
+            methodNameUsingPath: this.options.methodNameUsingPath
         })
         let codeResult = codegen(data)
 

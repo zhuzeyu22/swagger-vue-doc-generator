@@ -60,15 +60,15 @@ class InitCli {
     this.addArgument(
       ['-m', '--moduleName'],
       {
-        help    : 'Swagger generator module name',
-        required: true
+        help    : 'Swagger generator module name (unused)',
+        required: false
       }
     )
 
     this.addArgument(
       ['-c', '--className'],
       {
-        help        : 'Swagger generator class name',
+        help        : 'Swagger generator class name (unused)',
         defaultValue: 'API',
       }
     )
@@ -116,6 +116,14 @@ class InitCli {
       ['-u', '--url'],
       {
         help        : 'Fecth swagger file from URL',
+      }
+    )
+    
+    this.addArgument(
+      ['--method-name-using-path'],
+      {
+        help        : 'Using path as the API method name',
+        defaultValue: 'false'
       }
     )
 
@@ -203,6 +211,7 @@ class InitCli {
           outFile   : this.arguments.destination,
           moduleName: this.arguments.moduleName,
           className : this.arguments.className,
+          methodNameUsingPath: Boolean(this.arguments.method_name_using_path !== 'false' )
         })
 
     generator.generate()
