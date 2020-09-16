@@ -79,3 +79,13 @@ npm install --dev
 ```bash
 npm run test
 ```
+
+# Author
+## Donii Sergii (sonrac)
+* Ukraine 
+* doniysa@gmail.com 
+* https://blog.sonrac.info
+## zhuzeyu 
+* China
+* 756531815@qq.com
+
